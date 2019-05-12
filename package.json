@@ -1,0 +1,22 @@
+{
+  "name": "co-wechat-life-export",
+  "version": "1.0.0",
+  "description": "朋友圈导出",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack --watch --config webpack.config.js --mode=development",
+    "build": "webpack --config webpack.config.js --mode=production"
+  },
+  "author": "Coande",
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-loader": "^8.0.5",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.17.2",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2"
+  }
+}
