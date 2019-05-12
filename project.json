@@ -1,10 +1,38 @@
 {
-    "name": "新建项目",
-    "main": "main.js",
-    "ignore": [
-        "build"
-    ],
-    "packageName": "com.example",
-    "versionName": "1.0.0",
-    "versionCode": 1
+  "assets": [],
+  "build": {
+    "build_number": 0,
+    "build_time": 0,
+    "release": false
+  },
+  "encryptLevel": 0,
+  "useFeatures": [],
+  "launchConfig": {
+    "displaySplash": true,
+    "hideLogs": false,
+    "splashText": "Powered by Auto.js Pro",
+    "stableMode": false
+  },
+  "name": "朋友圈导出",
+  "mainScriptFile": "dist/main.js",
+  "ignore": [
+    "build",
+    "node_modules",
+    "src",
+    ".eslintrc.js",
+    ".gitignore",
+    "package-lock.json",
+    "package.json",
+    "README.md",
+    "webpack.config.js",
+    "test"
+  ],
+  "optimization": {
+    "removeOpenCv": false,
+    "unusedResources": false
+  },
+  "packageName": "com.e12e.co.wechat.life.export",
+  "scripts": {},
+  "versionName": "1.0.0",
+  "versionCode": 1
 }
