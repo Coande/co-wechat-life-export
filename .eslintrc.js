@@ -13,6 +13,8 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'no-undef': 'off',
-    'prefer-destructuring': 'off'
+    'prefer-destructuring': 'off',
+    'no-plusplus': 'off',
+    'no-loop-func': 'off'
   },
 };
