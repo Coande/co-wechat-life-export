@@ -6,6 +6,7 @@ const getSomeCanSee = require('./get-some-can-see.js');
 const constant = require('./constant.js');
 const utils = require('./utils.js');
 const db = require('./save-to-db.js');
+const transformDate = require('./transform-date.js');
 
 // 滚动到顶部
 function scrollToFirstRow() {
@@ -81,7 +82,7 @@ module.exports = (extInfo) => {
     throw new Error('找不到日期控件');
   }
   const dateTextString = dateText.text();
-  console.log('时间：', dateTextString);
+  console.log('时间：==', dateTextString, '==', transformDate(dateTextString));
 
   // 获取不到地点信息
   const locationImage = locationObj.get();
@@ -156,10 +157,10 @@ module.exports = (extInfo) => {
     shareTitle: shareTextString,
     shareLink,
     shareFrom: fromTextString,
-    sendTime: dateTextString,
+    sendTime: transformDate(dateTextString),
     sendLocation: '',
-    sendLocationShow: locationImage.fileName,
-    sendLocationOcr: locationImage.ocrText,
+    sendLocationShow: locationImage ? locationImage.fileName : '',
+    sendLocationOcr: locationImage ? locationImage.ocrText : '',
     someCanSeeType: someCanSee ? someCanSee.type : '',
     someCanSeeList: someCanSee ? JSON.stringify(someCanSee.list) : '',
     isPrivate: isPrivateSee ? 1 : 0,
