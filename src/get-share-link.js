@@ -21,7 +21,7 @@ module.exports = () => {
     shareLink = '已停止访问该网页';
   } else {
     text('复制链接').waitFor();
-    sleep(1000);
+    sleep(1500);
     const copyButton = text('复制链接')
       .untilFind()
       .get(0);
