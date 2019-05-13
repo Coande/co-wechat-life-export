@@ -15,7 +15,7 @@ function doSaveMedia(mediaCom, mediaType) {
     // id(controlMap.videoPlayerWrapper).waitFor();
   }
   sleep(500);
-  const longClickResult = longClick(device.width / 2, device.height / 2);
+  const longClickResult = press(device.width / 2, device.height / 2, 600);
   if (!longClickResult) {
     console.error('长按结果：', longClickResult);
   }
