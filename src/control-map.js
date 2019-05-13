@@ -43,4 +43,9 @@ module.exports = {
 
   // 列表底部横线
   bottomLine: 'ai5',
+
+  // 部分好友可见 好友列表
+  someCanSeeList: 'n3',
+  // 部分好友可见 好友名称
+  someCanSeeItemName: 'nr',
 };

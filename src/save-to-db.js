@@ -1,7 +1,9 @@
+const constant = require('./constant.js');
+
 const dbWrapper = (() => {
   // console.log('打开/创建数据库实例');
   const db = sqlite.open(
-    '/sdcard/com.e12e.co-wechat-life-export/data.db',
+    `${constant.appDir}/data.db`,
     { version: 1 },
     {
       onOpen(dbInstant) {
@@ -20,7 +22,8 @@ const dbWrapper = (() => {
           `sendTime` TEXT,\
           `sendLocation` TEXT,\
           `sendLocationShow` TEXT,\
-          `isSomeCanSee` INTEGER,\
+          `someCanSeeType` TEXT,\
+          `someCanSeeList` TEXT,\
           `isPrivate` INTEGER,\
           `createdAt` TEXT\
         )\

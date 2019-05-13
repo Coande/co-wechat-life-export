@@ -2,6 +2,7 @@ const controlMap = require('./control-map.js');
 const saveMedia = require('./save-media.js');
 const getShareLink = require('./get-share-link.js');
 const locationObj = require('./get-location-image');
+const getSomeCanSee = require('./get-some-can-see.js');
 const constant = require('./constant.js');
 const utils = require('./utils.js');
 const db = require('./save-to-db.js');
@@ -36,8 +37,10 @@ module.exports = (extInfo) => {
 
   // 保证能够截图到地址
   const localtionText = id(controlMap.locationText).findOnce();
-  if (localtionText && (localtionText.bounds().top > device.height
-    || localtionText.bounds().height() < 0)) {
+  if (
+    localtionText
+    && (localtionText.bounds().top > device.height || localtionText.bounds().height() < 0)
+  ) {
     scrollUp();
     sleep(500);
   }
@@ -112,10 +115,8 @@ module.exports = (extInfo) => {
     }
   }
 
-  const someCanSee = id(controlMap.someCanSee).findOnce();
-  let isSomeCanSee = false;
+  const someCanSee = getSomeCanSee();
   if (someCanSee) {
-    isSomeCanSee = true;
     console.log('当前内容限制了可见性');
   }
 
@@ -158,7 +159,8 @@ module.exports = (extInfo) => {
     sendTime: dateTextString,
     sendLocation: '',
     sendLocationShow: locationImage,
-    isSomeCanSee: isSomeCanSee ? 1 : 0,
+    someCanSeeType: someCanSee ? someCanSee.type : '',
+    someCanSeeList: someCanSee ? JSON.stringify(someCanSee.list) : '',
     isPrivate: isPrivateSee ? 1 : 0,
     createdAt: new Date().getTime(),
   });
