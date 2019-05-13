@@ -14,18 +14,19 @@
     "stableMode": false
   },
   "name": "朋友圈导出",
-  "mainScriptFile": "dist/main.js",
+  "mainScriptFile": "main.js",
   "ignore": [
     "build",
     "node_modules",
     "src",
+    "test",
+    ".eslintignore",
     ".eslintrc.js",
     ".gitignore",
     "package-lock.json",
     "package.json",
     "README.md",
     "webpack.config.js",
-    "test"
   ],
   "optimization": {
     "removeOpenCv": false,

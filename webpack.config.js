@@ -1,10 +1,11 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/start.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js',
+    filename: 'start.js',
+    libraryTarget: 'commonjs2',
   },
   module: {
     rules: [
@@ -16,7 +17,7 @@ module.exports = {
       },
       {
         test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules|bower_components|main.js)/,
         use: {
           loader: 'babel-loader',
           options: {

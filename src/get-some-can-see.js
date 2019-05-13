@@ -13,7 +13,6 @@ module.exports = () => {
     let lastRow;
     // 连续三次到底判断为真的到底了
     while (reachEndTimes !== 3) {
-      console.log('等待list');
       const someCanSeeListCom = id(controlMap.someCanSeeList)
         .untilFind()
         .get(0);
