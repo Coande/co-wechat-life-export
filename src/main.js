@@ -1,4 +1,3 @@
-
 const utils = require('./utils.js');
 const detailsOP = require('./details-op.js');
 const controlMap = require('./control-map.js');
@@ -11,6 +10,12 @@ function getIsReachEnd() {
   return false;
 }
 
+console.log('请求截图');
+// 请求截图
+if (!requestScreenCapture()) {
+  toastLog('请求截图失败');
+  exit();
+}
 
 auto();
 waitForActivity('com.tencent.mm.plugin.sns.ui.SnsUserUI');

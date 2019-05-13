@@ -22,6 +22,7 @@ const dbWrapper = (() => {
           `sendTime` TEXT,\
           `sendLocation` TEXT,\
           `sendLocationShow` TEXT,\
+          `sendLocationOcr` TEXT,\
           `someCanSeeType` TEXT,\
           `someCanSeeList` TEXT,\
           `isPrivate` INTEGER,\
