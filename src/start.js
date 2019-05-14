@@ -2,6 +2,7 @@ const utils = require('./utils.js');
 const detailsOP = require('./details-op.js');
 const controlMap = require('./control-map.js');
 const db = require('./save-to-db.js');
+const constant = require('./constant.js');
 
 function getIsReachEnd() {
   if (id(controlMap.bottomLine).findOnce()) {
@@ -85,5 +86,5 @@ module.exports = (filterLifeStartTime, filterLifeEndTime) => () => {
     }
   }
   db.close();
-  alert('提示', '恭喜，导出完毕！');
+  alert('提示', `恭喜，导出完毕！导出的数据位于：${constant.appDir}`);
 };

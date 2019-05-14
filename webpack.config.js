@@ -4,6 +4,7 @@ module.exports = {
   entry: {
     start: './src/start.js',
     'save-to-db': './src/save-to-db.js',
+    constant: './src/constant.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

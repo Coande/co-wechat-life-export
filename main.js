@@ -2,6 +2,11 @@
 
 const start = require('./dist/start.js');
 const db = require('./dist/save-to-db.js');
+const constant = require('./dist/constant.js');
+
+console.setGlobalLogConfig({
+  file: constant.appDir + '/log.txt'
+});
 
 ui.layout(
   <vertical>
