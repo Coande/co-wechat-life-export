@@ -1,10 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/start.js',
+  entry: {
+    start: './src/start.js',
+    'save-to-db': './src/save-to-db.js',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'start.js',
+    filename: '[name].js',
     libraryTarget: 'commonjs2',
   },
   module: {

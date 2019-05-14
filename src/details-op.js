@@ -21,6 +21,15 @@ function scrollToFirstRow() {
   }
 }
 
+function backToList(lifeType) {
+  if (lifeType === 'media') {
+    back();
+    waitForActivity('com.tencent.mm.plugin.sns.ui.SnsGalleryUI');
+  }
+  back();
+  waitForActivity('com.tencent.mm.plugin.sns.ui.SnsUserUI');
+}
+
 module.exports = (extInfo) => {
   let lifeType = '';
   // 判断是否图片浏览界面
@@ -35,6 +44,22 @@ module.exports = (extInfo) => {
 
   sleep(1000);
   scrollToFirstRow();
+
+  const dateText = id(controlMap.dateText).findOnce();
+  if (!dateText) {
+    toastLog('找不到日期控件');
+    throw new Error('找不到日期控件');
+  }
+
+  const dateTextString = dateText.text();
+  const transformDateRes = transformDate(dateTextString);
+  console.log('时间：==', dateTextString, '==', transformDateRes);
+
+  if (transformDateRes < extInfo.filterLifeStartTime
+    || transformDateRes > extInfo.filterLifeEndTime) {
+    backToList(lifeType);
+    return;
+  }
 
   // 保证能够截图到地址
   const localtionText = id(controlMap.locationText).findOnce();
@@ -52,12 +77,7 @@ module.exports = (extInfo) => {
       row: extInfo.row,
       createdAt: new Date().getTime(),
     });
-    if (lifeType === 'media') {
-      back();
-      waitForActivity('com.tencent.mm.plugin.sns.ui.SnsGalleryUI');
-    }
-    back();
-    waitForActivity('com.tencent.mm.plugin.sns.ui.SnsUserUI');
+    backToList(lifeType);
     return;
   }
 
@@ -75,14 +95,6 @@ module.exports = (extInfo) => {
     shareTextString = shareText.text();
     console.log('分享名称：', shareTextString);
   }
-
-  const dateText = id(controlMap.dateText).findOnce();
-  if (!dateText) {
-    toastLog('找不到日期控件');
-    throw new Error('找不到日期控件');
-  }
-  const dateTextString = dateText.text();
-  console.log('时间：==', dateTextString, '==', transformDate(dateTextString));
 
   // 获取不到地点信息
   const locationImage = locationObj.get();
@@ -169,10 +181,5 @@ module.exports = (extInfo) => {
 
   console.log('<<===================================');
 
-  if (lifeType === 'media') {
-    back();
-    waitForActivity('com.tencent.mm.plugin.sns.ui.SnsGalleryUI');
-  }
-  back();
-  waitForActivity('com.tencent.mm.plugin.sns.ui.SnsUserUI');
+  backToList(lifeType);
 };

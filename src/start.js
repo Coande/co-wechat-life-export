@@ -10,7 +10,7 @@ function getIsReachEnd() {
   return false;
 }
 
-module.exports = () => {
+module.exports = (filterLifeStartTime, filterLifeEndTime) => () => {
   // 请求截图
   if (!requestScreenCapture()) {
     toastLog('请求截图失败');
@@ -50,6 +50,8 @@ module.exports = () => {
           }
           detailsOP({
             row: currentRow,
+            filterLifeStartTime,
+            filterLifeEndTime,
           });
         } else {
           console.error('第', currentIndex, '个item点击结果：', clickResult);
