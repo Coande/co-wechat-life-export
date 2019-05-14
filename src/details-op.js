@@ -57,8 +57,13 @@ module.exports = (extInfo) => {
 
   if (transformDateRes < extInfo.filterLifeStartTime
     || transformDateRes > extInfo.filterLifeEndTime) {
+    if (transformDateRes < extInfo.filterLifeStartTime) {
+      return {
+        isFinish: true,
+      };
+    }
     backToList(lifeType);
-    return;
+    return {};
   }
 
   // 保证能够截图到地址
@@ -78,7 +83,7 @@ module.exports = (extInfo) => {
       createdAt: new Date().getTime(),
     });
     backToList(lifeType);
-    return;
+    return {};
   }
 
   // 开始获取数据
@@ -182,4 +187,5 @@ module.exports = (extInfo) => {
   console.log('<<===================================');
 
   backToList(lifeType);
+  return {};
 };

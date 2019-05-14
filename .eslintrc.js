@@ -19,5 +19,6 @@ module.exports = {
     'prefer-destructuring': 'off',
     'no-plusplus': 'off',
     'no-loop-func': 'off',
+    'no-alert': 'off'
   },
 };

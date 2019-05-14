@@ -22,15 +22,15 @@ ui.layout(
 
       <button id="startButton" text="开始"/>
       <list id="list">
-          <horizontal>
-              <vertical>
+          <horizontal margin="10" w="*">
+              <vertical layout_weight="1">
                 <text id="lifeStartTime" text="动态起始时间: {{lifeStartTime}}"/>
                 <text id="lifeEndTime" text="动态结束时间: {{lifeEndTime}}"/>
                 <text id="runStartTime" text="执行起始时间: {{runStartTime}}"/>
                 <text id="runEndTime" text="执行结束时间: {{runEndTime}}"/>
                 <text id="lifeCount" text="动态条数: {{lifeCount}}"/>
               </vertical>
-              <button id="deleteItem" text="删除"/>
+              <button id="deleteItem" text="删除" layout_gravity="center"/>
           </horizontal>
       </list>
   </vertical>
