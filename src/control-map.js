@@ -38,6 +38,9 @@ module.exports = {
   // 图片浏览 图片容器
   picturePlayerWrapper: 'ejn',
 
+  // 网页浏览时菜单
+  broswerMoreButton: 'kj',
+
   // 网页浏览时菜单 菜单条目容器
   browserMenuWrapper: 'd97',
 

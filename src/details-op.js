@@ -42,7 +42,16 @@ module.exports = (extInfo) => {
     lifeType = 'media';
   }
 
-  sleep(1000);
+  sleep(2000);
+
+  // 有可能先公开后设置私密，提示会在底部
+  const privateSee = text('私密照片不能评论').findOnce();
+  let isPrivateSee = false;
+  if (privateSee) {
+    isPrivateSee = true;
+    console.log('当前内容仅自己可见');
+  }
+
   scrollToFirstRow();
 
   const dateText = id(controlMap.dateText).findOnce();
@@ -70,7 +79,9 @@ module.exports = (extInfo) => {
   const localtionText = id(controlMap.locationText).findOnce();
   if (
     localtionText
-    && (localtionText.bounds().top > device.height || localtionText.bounds().height() < 0)
+    && (localtionText.bounds().top > device.height
+    || localtionText.bounds().height() < 0
+    || localtionText.bounds().height() === 0)
   ) {
     scrollUp();
     sleep(500);
@@ -136,13 +147,6 @@ module.exports = (extInfo) => {
   const someCanSee = getSomeCanSee();
   if (someCanSee) {
     console.log('当前内容限制了可见性');
-  }
-
-  const privateSee = text('私密照片不能评论').findOnce();
-  let isPrivateSee = false;
-  if (privateSee) {
-    isPrivateSee = true;
-    console.log('当前内容仅自己可见');
   }
 
   const pictureFileNameList = saveMedia.savePicture();

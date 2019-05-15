@@ -25,8 +25,9 @@ module.exports = (filterLifeStartTime, filterLifeEndTime) => () => {
     exit();
   }
 
-  // eslint-disable-next-line no-alert
-  alert('提示', '请保持当前软件后台运行，并切换微信，打开朋友圈个人页面');
+  ui.run(() => {
+    dialogs.alert('提示', '请保持当前软件后台运行，并切换微信，打开朋友圈个人页面');
+  });
 
   waitForActivity('com.tencent.mm.plugin.sns.ui.SnsUserUI');
 
@@ -86,5 +87,8 @@ module.exports = (filterLifeStartTime, filterLifeEndTime) => () => {
     }
   }
   db.close();
-  alert('提示', `恭喜，导出完毕！导出的数据位于：${constant.appDir}`);
+  ui.run(() => {
+    alert('提示', `恭喜，导出完毕！导出的数据位于：${constant.appDir}`);
+    toastLog(`恭喜，导出完毕！导出的数据位于：${constant.appDir}`);
+  });
 };

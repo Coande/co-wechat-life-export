@@ -1,9 +1,10 @@
 const constant = require('./constant.js');
 const getOcrLocation = require('./get-ocr-location.js');
+const controlMap = require('./control-map.js');
 
 module.exports = (() => ({
   get() {
-    const locationCom = id('ehx').findOnce();
+    const locationCom = id(controlMap.locationText).findOnce();
     if (locationCom) {
       // 截图
       const img = captureScreen();

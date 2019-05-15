@@ -14,7 +14,7 @@ function doSaveMedia(mediaCom, mediaType) {
     waitForActivity('com.tencent.mm.plugin.sns.ui.SnsOnlineVideoActivity');
     // id(controlMap.videoPlayerWrapper).waitFor();
   }
-  sleep(500);
+  sleep(1000);
   const longClickResult = press(device.width / 2, device.height / 2, 600);
   if (!longClickResult) {
     console.error('长按结果：', longClickResult);
@@ -40,7 +40,7 @@ function doSaveMedia(mediaCom, mediaType) {
     }
     sleep(500);
   }
-  sleep(2000);
+  sleep(2500);
   if (text('识别图中二维码').findOnce()) {
     back();
     sleep(500);
