@@ -11,29 +11,29 @@ console.setGlobalLogConfig({
 ui.layout(
   <vertical>
       <horizontal>
-        <text text="起始时间: "/>
-        <input id="sy" hint="年" inputType="number" layout_weight="4" maxLength="4"/><text text="/"/>
-        <input id="sm" hint="月" inputType="number" layout_weight="2" maxLength="2"/><text text="/"/>
-        <input id="sd" hint="日" inputType="number" layout_weight="2" maxLength="2"/>
-        <input id="sh" hint="时" inputType="number" layout_weight="2" maxLength="2"/><text text=":"/><input id="sm2" hint="分" inputType="number" layout_weight="2" maxLength="2"/>
-      </horizontal>
-      <horizontal>
-        <text  text="结束时间: "/>
+        <text  text="最后时间: "/>
         <input id="ey" hint="年" inputType="number" layout_weight="4" maxLength="4"/><text text="/"/>
         <input id="em" hint="月" inputType="number" layout_weight="2" maxLength="2"/><text text="/"/>
         <input id="ed" hint="日" inputType="number" layout_weight="2" maxLength="2"/>
         <input id="eh" hint="时" inputType="number" layout_weight="2" maxLength="2"/><text text=":"/><input id="em2" hint="分" inputType="number" layout_weight="2" maxLength="2"/>
+      </horizontal>
+      <horizontal>
+        <text text="最前时间: "/>
+        <input id="sy" hint="年" inputType="number" layout_weight="4" maxLength="4"/><text text="/"/>
+        <input id="sm" hint="月" inputType="number" layout_weight="2" maxLength="2"/><text text="/"/>
+        <input id="sd" hint="日" inputType="number" layout_weight="2" maxLength="2"/>
+        <input id="sh" hint="时" inputType="number" layout_weight="2" maxLength="2"/><text text=":"/><input id="sm2" hint="分" inputType="number" layout_weight="2" maxLength="2"/>
       </horizontal>
 
       <button id="startButton" text="开始"/>
       <list id="list">
           <horizontal margin="10" w="*">
               <vertical layout_weight="1">
-                <text id="lifeStartTime" text="动态起始时间: {{lifeStartTime}}"/>
-                <text id="lifeEndTime" text="动态结束时间: {{lifeEndTime}}"/>
-                <text id="runStartTime" text="执行起始时间: {{runStartTime}}"/>
-                <text id="runEndTime" text="执行结束时间: {{runEndTime}}"/>
-                <text id="lifeCount" text="动态条数: {{lifeCount}}"/>
+                <text id="lifeEndTime" text="动态最后时间: {{lifeEndTime}}"/>
+                <text id="lifeStartTime" text="动态最前时间: {{lifeStartTime}}"/>
+                <text id="runStartTime" text="脚本开始时间: {{runStartTime}}"/>
+                <text id="runEndTime" text="脚本结束时间: {{runEndTime}}"/>
+                <text id="lifeCount" text="含有动态条数: {{lifeCount}}"/>
               </vertical>
               <button id="deleteItem" text="删除" layout_gravity="center"/>
           </horizontal>
