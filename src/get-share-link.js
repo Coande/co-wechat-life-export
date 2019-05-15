@@ -2,23 +2,26 @@ const utils = require('./utils.js');
 const controlMap = require('./control-map.js');
 
 module.exports = () => {
-  desc('更多').waitFor();
-  sleep(1000);
-  const moreOP = desc('更多')
+  id(controlMap.broswerMoreButton).waitFor();
+  sleep(1500);
+  // 可能需要微信登录
+  if (text('允许').findOnce()) {
+    text('允许').findOnce().click();
+  }
+  const moreOP = id(controlMap.broswerMoreButton)
     .untilFind()
     .get(0);
   const clickResult = utils.superClick(moreOP);
   if (!clickResult) {
     console.log('点击结果：', clickResult);
   }
-  const menuWrapper = id(controlMap.browserMenuWrapper)
-    .untilFind()
-    .get(0);
+  id(controlMap.browserMenuWrapper).waitFor();
 
   let shareLink = '';
-  if (menuWrapper.children().size() < 4) {
+  sleep(1000);
+  if (!text('复制链接').findOnce()) {
     // 页面打不开了
-    shareLink = '已停止访问该网页';
+    shareLink = '网页无法继续访问';
   } else {
     text('复制链接').waitFor();
     sleep(1500);
